@@ -11,6 +11,7 @@
 #include <Filter/MedianFilter.h>
 #include <Filter/TemporalMedianFilter.h>
 #include <Filter/SmoothFilter.h>
+#include <Filter/FlypixFilter.h>
 #include <Filter/BilateralFilter.h>
 #include <Filter/DarkPixFilter.h>
 #include <Filter/DenoiseFilter.h>
@@ -38,6 +39,10 @@ VoxelFilterFactory::VoxelFilterFactory(): FilterFactory("Voxel")
                       (1 << DepthCamera::FRAME_RAW_FRAME_PROCESSED) | 
                       (1 << DepthCamera::FRAME_DEPTH_FRAME),
                       []() -> FilterPtr { return FilterPtr(new SmoothFilter()); }),
+    FilterDescription("FlypixFilter", 
+                      (1 << DepthCamera::FRAME_RAW_FRAME_PROCESSED) | 
+                      (1 << DepthCamera::FRAME_DEPTH_FRAME),
+                      []() -> FilterPtr { return FilterPtr(new FlypixFilter()); }),
     FilterDescription("BilateralFilter", 
                       (1 << DepthCamera::FRAME_RAW_FRAME_PROCESSED) | 
                       (1 << DepthCamera::FRAME_DEPTH_FRAME),

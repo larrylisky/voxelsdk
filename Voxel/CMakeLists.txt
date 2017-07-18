@@ -45,6 +45,7 @@ add_library(voxel SHARED
   Filter/MedianFilter.cpp
   Filter/TemporalMedianFilter.cpp
   Filter/SmoothFilter.cpp
+  Filter/FlypixFilter.cpp
   Filter/BilateralFilter.cpp
   Filter/FilterFactory.cpp
   Filter/VoxelFilterFactory.cpp
@@ -134,6 +135,7 @@ install(FILES
   Filter/TemporalMedianFilter.h
   Filter/BilateralFilter.h
   Filter/SmoothFilter.h
+  Filter/FlypixFilter.h
   Filter/DiscreteGaussian.h
   DESTINATION include/voxel-${VOXEL_VERSION}/Filter
   COMPONENT voxel_dev
